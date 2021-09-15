@@ -9,13 +9,13 @@ Words = List[str]
 
 
 def __loadStopWords() -> Words:
-    stop_words: Words = []
+    _stop_words: Words = []
     for p in path_list:
         with open(p, 'r') as f:
             words = f.readlines()
             for word in words:
-                stop_words.append(word)
-    return stop_words
+                _stop_words.append(word)
+    return _stop_words
 
 
-stopWords = __loadStopWords()
+stop_words = __loadStopWords()
