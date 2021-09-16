@@ -4,13 +4,19 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
 
 # Press the green button in the gutter to run the script.
+import jiagu
+
+from ExtractionKeywords import get_extraction_keywords
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    text = '洛天依是我老婆'
+    get_extraction_keywords(text)
+    words = jiagu.seg(text)
+    print(words)
+    print(jiagu.pos(words))
+    knowledge = jiagu.knowledge(text)
+    print(knowledge)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

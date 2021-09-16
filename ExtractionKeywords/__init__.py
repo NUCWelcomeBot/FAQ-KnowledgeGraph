@@ -1,5 +1,12 @@
 import jieba.analyse
-import jieba.posseg as pseg
-corpus = '中北大学大数据学院宿舍怎么样'
-keywords_tfidf = jieba.analyse.extract_tags(corpus)
-print(keywords_tfidf)
+
+from LoadData import stop_words
+from Train import lac
+
+
+def get_extraction_keywords(text):
+    results = lac.cut(text=text, use_gpu=False, batch_size=1, return_tag=True)
+    for result in results:
+        if result in stop_words:
+            results.remove(result)
+    print(results)
