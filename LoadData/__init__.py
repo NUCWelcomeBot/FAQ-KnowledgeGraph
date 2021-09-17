@@ -11,10 +11,10 @@ Words = List[str]
 def __loadStopWords() -> Words:
     _stop_words: Words = []
     for p in path_list:
-        with open(p, 'r',encoding='utf-8') as f:
+        with open(p, 'r', encoding='utf-8') as f:
             words = f.readlines()
             for word in words:
-                _stop_words.append(word)
+                _stop_words.append(word.replace("\n", ''))
     return _stop_words
 
 
