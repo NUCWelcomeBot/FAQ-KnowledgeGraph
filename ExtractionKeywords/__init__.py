@@ -5,10 +5,20 @@ import jieba.analyse
 from LoadData import stop_words
 from Train import lac
 
+n_word_tag = ['n', 'nz', 'PER', 'LOC', 'ORG', 'TIME', 'nw', 's', 'f']
+
 
 def get_extraction_keywords(text) -> List[str]:
-    results = lac.cut(text=text, use_gpu=False, batch_size=1, return_tag=True)
-    for result in results:
-        if result in stop_words:
-            results.remove(result)
-    return results
+    results = lac.run(text)
+    words = results[0]
+    tags = results[1]
+    result = []
+    for word in words:
+        if words in stop_words:
+            words.remove(word)
+            tags.pop(words.index(word))
+    for i in range(len(tags)):
+        if tags[i] in n_word_tag:
+            if words[i] not in result:
+                result.append(words[i])
+    return result

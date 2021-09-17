@@ -1,13 +1,3 @@
-import jiagu
-import paddlehub as hub
+from LAC import LAC
 
-from LoadData import stop_words
-
-lac = hub.Module(name="lac")
-
-lac = hub.Module(name="lac")
-
-
-
-
-
+lac = LAC(mode='lac')
