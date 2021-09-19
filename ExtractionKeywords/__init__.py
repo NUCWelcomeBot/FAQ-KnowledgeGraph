@@ -3,7 +3,7 @@ from typing import List
 import jieba.analyse
 
 from LoadData import stop_words
-from Train import lac
+from AIModel import lac
 
 n_word_tag = ['n', 'nz', 'PER', 'LOC', 'ORG', 'TIME', 'nw', 's', 'f']
 
