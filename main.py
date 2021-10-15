@@ -19,7 +19,12 @@ def getExtractionKey():
     }
 
 
+@app.route('/')
+def hello():
+    return 'hello'
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
