@@ -19,9 +19,12 @@ def getExtractionKey():
     }
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def hello():
-    return 'hello'
+    print(request.get_data())
+    return {
+        'data': False
+    }
 
 
 if __name__ == '__main__':
